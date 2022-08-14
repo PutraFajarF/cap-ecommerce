@@ -1,22 +1,18 @@
 import React from 'react';
-import AllProducts from '../../components/AllProducts/AllProducts';
+import AccountDetail from '../../components/AccountDetail/AccountDetail';
 import Footer from '../../components/Footer/Footer';
 import Navigation from '../../components/Header/Navigation';
 import TopNav from '../../components/Header/TopNav';
 
-const Product = () => {
+const Account = () => {
   return (
     <div>
-      {/* Top Navigation */}
       <TopNav />
-      {/* Navigation */}
       <Navigation />
-      {/* All Products */}
-      <AllProducts />
-      {/* Footer */}
+      <AccountDetail />
       <Footer />
     </div>
   );
 };
 
-export default Product;
+export default Account;
