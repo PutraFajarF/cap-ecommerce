@@ -15,7 +15,7 @@ const Hero = () => {
               Independence Month
             </h1>
             <h5>From 1th August to 31st August</h5>
-            <a href="/##" class="btn">SHOP NOW</a>
+            <a href="/product" class="btn">SHOP NOW</a>
           </div>
           <div class="right">
             <img src={require("../../assets/images/banner.png")} alt="" />
