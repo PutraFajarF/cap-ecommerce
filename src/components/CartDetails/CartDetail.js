@@ -104,18 +104,18 @@ const CartDetail = () => {
       <section class="section featured">
         <div class="top container">
           <h1>Latest Products</h1>
-          <a href="/#" class="view-more">View more</a>
+          <a href="/product" class="view-more">View more</a>
         </div>
         <div class="product-center container">
           <div class="product-item">
             <div class="overlay">
-              <a href="/" class="product-thumb">
+              <a href="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-6.jpg")} alt="" />
               </a>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/">Concepts Solid Pink Men’s Polo</a>
+              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
               <h4>150.000</h4>
             </div>
             <ul class="icons">
@@ -126,14 +126,14 @@ const CartDetail = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/" class="product-thumb">
+              <a href="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-1.jpg")} alt="" />
               </a>
               <span class="discount">40%</span>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/">Concepts Solid Pink Men’s Polo</a>
+              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
               <h4>150.000</h4>
             </div>
             <ul class="icons">
@@ -144,13 +144,13 @@ const CartDetail = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/" class="product-thumb">
+              <a href="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-3.jpg")} alt="" />
               </a>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/">Concepts Solid Pink Men’s Polo</a>
+              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
               <h4>150.000</h4>
             </div>
             <ul class="icons">
@@ -161,13 +161,13 @@ const CartDetail = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/" class="product-thumb">
+              <a href="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-2.jpg")} alt="" />
               </a>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/">Concepts Solid Pink Men’s Polo</a>
+              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
               <h4>150.000</h4>
             </div>
             <ul class="icons">

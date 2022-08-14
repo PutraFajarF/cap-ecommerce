@@ -11,14 +11,14 @@ const PopularProducts = () => {
         <div class="product-center">
           <div class="product-item">
             <div class="overlay">
-              <a href="/#" class="product-thumb">
+              <a href="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-7.jpg")} alt="" />
               </a>
               <span class="discount">50%</span>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/#">Quis Nostrud Exercitation</a>
+              <a href="/product/1">Quis Nostrud Exercitation</a>
               <h4>200.000</h4>
             </div>
             <ul class="icons">
@@ -29,13 +29,13 @@ const PopularProducts = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/#" class="product-thumb">
+              <a href="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-4.jpg")} alt="" />
               </a>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/#">Sonata White Men’s Shirt</a>
+              <a href="/product/1">Sonata White Men’s Shirt</a>
               <h4>140.000</h4>
             </div>
             <ul class="icons">
@@ -46,14 +46,14 @@ const PopularProducts = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/#" class="product-thumb">
+              <a href="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-1.jpg")} alt="" />
               </a>
               <span class="discount">40%</span>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/#">Concepts Solid Pink Men’s Polo</a>
+              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
               <h4>150.000</h4>
             </div>
             <ul class="icons">
@@ -64,13 +64,13 @@ const PopularProducts = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/#" class="product-thumb">
+              <a href="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-6.jpg")} alt="" />
               </a>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/#">Edor do eiusmod tempor</a>
+              <a href="/product/1">Edor do eiusmod tempor</a>
               <h4>$140.000</h4>
             </div>
             <ul class="icons">
