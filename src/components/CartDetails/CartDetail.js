@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CartDetail = () => {
   return (
@@ -17,7 +18,7 @@ const CartDetail = () => {
                 <div>
                   <p>Boy’s T-Shirt</p>
                   <span>Price: 100.000</span> <br />
-                  <a href="/#">remove</a>
+                  <Link to="/#">remove</Link>
                 </div>
               </div>
             </td>
@@ -31,7 +32,7 @@ const CartDetail = () => {
                 <div>
                   <p>Boy’s T-Shirt</p>
                   <span>Price: 150.000</span> <br />
-                  <a href="/#">remove</a>
+                  <Link to="/#">remove</Link>
                 </div>
               </div>
             </td>
@@ -45,7 +46,7 @@ const CartDetail = () => {
                 <div>
                   <p>Boy’s T-Shirt</p>
                   <span>Price: 50.000</span> <br />
-                  <a href="/#">remove</a>
+                  <Link to="/#">remove</Link>
                 </div>
               </div>
             </td>
@@ -59,7 +60,7 @@ const CartDetail = () => {
                 <div>
                   <p>Boy’s T-Shirt</p>
                   <span>Price: 100.000</span> <br />
-                  <a href="/#">remove</a>
+                  <Link to="/#">remove</Link>
                 </div>
               </div>
             </td>
@@ -73,7 +74,7 @@ const CartDetail = () => {
                 <div>
                   <p>Boy’s T-Shirt</p>
                   <span>Price: 150.000</span> <br />
-                  <a href="/#">remove</a>
+                  <Link to="/#">remove</Link>
                 </div>
               </div>
             </td>
@@ -96,7 +97,7 @@ const CartDetail = () => {
               <td>600.000</td>
             </tr>
           </table>
-          <a href="/#" class="checkout btn">Proceed To Checkout</a>
+          <Link to="/#" class="checkout btn">Proceed To Checkout</Link>
         </div>
       </div>
 
@@ -104,18 +105,18 @@ const CartDetail = () => {
       <section class="section featured">
         <div class="top container">
           <h1>Latest Products</h1>
-          <a href="/product" class="view-more">View more</a>
+          <Link to="/product" class="view-more">View more</Link>
         </div>
         <div class="product-center container">
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-6.jpg")} alt="" />
-              </a>
+              </Link>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
+              <Link to="/product/1">Concepts Solid Pink Men’s Polo</Link>
               <h4>150.000</h4>
             </div>
             <ul class="icons">
@@ -126,14 +127,14 @@ const CartDetail = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-1.jpg")} alt="" />
-              </a>
+              </Link>
               <span class="discount">40%</span>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
+              <Link to="/product/1">Concepts Solid Pink Men’s Polo</Link>
               <h4>150.000</h4>
             </div>
             <ul class="icons">
@@ -144,13 +145,13 @@ const CartDetail = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-3.jpg")} alt="" />
-              </a>
+              </Link>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
+              <Link to="/product/1">Concepts Solid Pink Men’s Polo</Link>
               <h4>150.000</h4>
             </div>
             <ul class="icons">
@@ -161,13 +162,13 @@ const CartDetail = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-2.jpg")} alt="" />
-              </a>
+              </Link>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
+              <Link to="/product/1">Concepts Solid Pink Men’s Polo</Link>
               <h4>150.000</h4>
             </div>
             <ul class="icons">

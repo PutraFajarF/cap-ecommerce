@@ -1,23 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
     <>
-      <div class="hero">
-        <div class="hero-content d-flex container">
-          <div class="left">
-            <span class="subtitle">GET YOUR SPRING COLLECTION</span>
-            <h1 class="title">
+      <div className="hero">
+        <div className="hero-content d-flex container">
+          <div className="left">
+            <span className="subtitle">GET YOUR SPRING COLLECTION</span>
+            <h1 className="title">
               Up to
-              <span class="color"> 90% <br />
+              <span className="color"> 90% <br />
                 Discount </span>
               on This <br />
               Independence Month
             </h1>
             <h5>From 1th August to 31st August</h5>
-            <a href="/product" class="btn">SHOP NOW</a>
+            <Link to="/product" className="btn">SHOP NOW</Link>
           </div>
-          <div class="right">
+          <div className="right">
             <img src={require("../../assets/images/banner.png")} alt="" />
           </div>
         </div>

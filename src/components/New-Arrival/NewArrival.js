@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NewArrival = () => {
   return (
@@ -11,13 +12,13 @@ const NewArrival = () => {
         <div class="product-center">
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-1.jpg")} alt="" />
-              </a>
+              </Link>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Quis Nostrud Exercitation</a>
+              <Link to="/product/1">Quis Nostrud Exercitation</Link>
               <h4>90.000</h4>
             </div>
             <ul class="icons">
@@ -28,14 +29,14 @@ const NewArrival = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-3.jpg")} alt="" />
-              </a>
+              </Link>
               <span class="discount">50%</span>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Sonata White Men’s Shirt</a>
+              <Link to="/product/1">Sonata White Men’s Shirt</Link>
               <h4>150.000</h4>
             </div>
             <ul class="icons">
@@ -46,13 +47,13 @@ const NewArrival = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-2.jpg")} alt="" />
-              </a>
+              </Link>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
+              <Link to="/product/1">Concepts Solid Pink Men’s Polo</Link>
               <h4>250.000</h4>
             </div>
             <ul class="icons">
@@ -63,14 +64,14 @@ const NewArrival = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-4.jpg")} alt="" />
-              </a>
+              </Link>
               <span class="discount">50%</span>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Grey Man Jacket</a>
+              <Link to="/product/1">Grey Man Jacket</Link>
               <h4>180.000</h4>
             </div>
             <ul class="icons">
@@ -81,13 +82,13 @@ const NewArrival = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-5.jpg")} alt="" />
-              </a>
+              </Link>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Black Man Jacket</a>
+              <Link to="/product/1">Black Man Jacket</Link>
               <h4>250.000</h4>
             </div>
             <ul class="icons">
@@ -98,13 +99,13 @@ const NewArrival = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-6.jpg")} alt="" />
-              </a>
+              </Link>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Green Shirt Men</a>
+              <Link to="/product/1">Green Shirt Men</Link>
               <h4>85.000</h4>
             </div>
             <ul class="icons">
@@ -115,14 +116,14 @@ const NewArrival = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-7.jpg")} alt="" />
-              </a>
+              </Link>
               <span class="discount">50%</span>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Blue Shirt Men</a>
+              <Link to="/product/1">Blue Shirt Men</Link>
               <h4>95.000</h4>
             </div>
             <ul class="icons">
@@ -133,13 +134,13 @@ const NewArrival = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-2.jpg")} alt="" />
-              </a>
+              </Link>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Strong Red Bag</a>
+              <Link to="/product/1">Strong Red Bag</Link>
               <h4>300.000</h4>
             </div>
             <ul class="icons">

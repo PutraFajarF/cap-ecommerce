@@ -5,6 +5,7 @@ import './App.css';
 
 // Pages
 import Account from './pages/Account/Account';
+import Register from './pages/Account/Register';
 import Cart from './pages/Cart/Cart';
 import Home from './pages/Home/Home';
 import Product from './pages/Product/Product';
@@ -19,7 +20,8 @@ function App() {
           <Route path='product' element={<Product />} />
           <Route path='product/:id' element={<ProductDetails />} />
           <Route path='cart' element={<Cart />} />
-          <Route path='account' element={<Account />} />
+          <Route path='login' element={<Account />} />
+          <Route path='register' element={<Register />} />
         </Routes>
       </BrowserRouter>
       {/* <Home /> */}

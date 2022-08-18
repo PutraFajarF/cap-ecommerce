@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const DetailProduct = () => {
   return (
@@ -30,7 +31,7 @@ const DetailProduct = () => {
             </form>
             <form class="form">
               <input type="text" placeholder="1" />
-              <a href="/cart" class="addCart">Add To Cart</a>
+              <Link to="/cart" class="addCart">Add To Cart</Link>
             </form>
             <h3>Product Detail</h3>
             <p>
@@ -46,18 +47,18 @@ const DetailProduct = () => {
       <section class="section featured">
         <div class="top container">
           <h1>Related Products</h1>
-          <a href="/product" class="view-more">View more</a>
+          <Link to="/product" class="view-more">View more</Link>
         </div>
         <div class="product-center container">
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-5.jpg")} alt="" />
-              </a>
+              </Link>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
+              <Link to="/product/1">Concepts Solid Pink Men’s Polo</Link>
               <h4>150.000</h4>
             </div>
             <ul class="icons">
@@ -68,14 +69,14 @@ const DetailProduct = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-2.jpg")} alt="" />
-              </a>
+              </Link>
               <span class="discount">40%</span>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/">Concepts Solid Pink Men’s Polo</a>
+              <Link to="/product/1">Concepts Solid Pink Men’s Polo</Link>
               <h4>150.000</h4>
             </div>
             <ul class="icons">
@@ -86,13 +87,13 @@ const DetailProduct = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-7.jpg")} alt="" />
-              </a>
+              </Link>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
+              <Link to="/product/1">Concepts Solid Pink Men’s Polo</Link>
               <h4>150.000</h4>
             </div>
             <ul class="icons">
@@ -103,14 +104,14 @@ const DetailProduct = () => {
           </div>
           <div class="product-item">
             <div class="overlay">
-              <a href="/product/1" class="product-thumb">
+              <Link to="/product/1" class="product-thumb">
                 <img src={require("../../assets/images/product-4.jpg")} alt="" />
-              </a>
+              </Link>
               <span class="discount">40%</span>
             </div>
             <div class="product-info">
               <span>MEN'S CLOTHES</span>
-              <a href="/product/1">Concepts Solid Pink Men’s Polo</a>
+              <Link to="/product/1">Concepts Solid Pink Men’s Polo</Link>
               <h4>150.000</h4>
             </div>
             <ul class="icons">

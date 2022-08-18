@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TopNav = () => {
   return (
     <>
-      <div class="top-nav">
-        <div class="container d-flex">
+      <div className="top-nav">
+        <div className="container d-flex">
           <p>Order Online or Call us: (0251) 8331-555</p>
-          <ul class="d-flex">
-            <li><a href="#contact">About Us</a></li>
-            <li><a href="#contact">FAQ</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <ul className="d-flex">
+            <li><Link to="#contact">About Us</Link></li>
+            <li><Link to="#contact">FAQ</Link></li>
+            <li><Link to="#contact">Contact</Link></li>
           </ul>
         </div>
       </div>
