@@ -16,7 +16,7 @@
   --black: #222;
   --green: #54BAB9;
   --grey1: #f0f0f0;
-  --grey2: #e9d7d3;
+  --grey2: #C4DFAA;
   --grey3: #EEEEEE;
   --red: #C21010;
 }
@@ -583,7 +583,7 @@ li {
 .banner .right img {
   position: absolute;
   bottom: 0;
-  right: 10%;
+  right: 5%;
   width: 75rem;
 }
 
