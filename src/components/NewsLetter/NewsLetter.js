@@ -12,7 +12,7 @@ const NewsLetter = () => {
             </div>
             <form action="#">
               <input type="email" placeholder="Enter your email address" class="newsletter__email" />
-              <a class="newsletter__link" href="/##">subscribe</a>
+              <a class="newsletter__link" href="/#">subscribe</a>
             </form>
           </div>
         </div>

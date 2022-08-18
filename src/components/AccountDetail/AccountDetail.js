@@ -1,7 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import {
+  auth,
+  loginWithEmailAndPassword,
+  registerWithEmailAndPassword
+} from '../../config/Firebase/firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 
 const AccountDetail = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  const [userLogin, setUserLogin] = useState({ email: '', password: '' });
+  const [userRegister, setUserRegister] = useState({
+    name: '',
+    email: '',
+    password: ''
+  });
+
+  const handleSubmit = async (e, params) => {
+    e.preventDefault();
+    if (params === 'login') {
+      await loginWithEmailAndPassword(userLogin.email, userLogin.password);
+    } else {
+      await registerWithEmailAndPassword(
+        userRegister.name,
+        userRegister.email,
+        userRegister.password
+      );
+      alert('User created successfully');
+    }
+  };
+
+  useEffect(() => {
+    if (loading) {
+      return;
+    }
+    if (user) navigate('/');
+    if (error) alert(error);
+  }, [loading, user, error, navigate]);
+
   const authToggle = (toggle) => {
     const LoginForm = document.getElementById("LoginForm");
     const RegForm = document.getElementById("RegForm");
@@ -32,10 +72,24 @@ const AccountDetail = () => {
                   <hr id="indicator" />
                 </div>
                 <form action="" id="LoginForm">
-                  <input type="text" placeholder="Username" />
-                  <input type="password" placeholder="Password" />
-                  <button type="submit" class="btn">Login</button>
-                  <a href="/">Forgot Password</a>
+                  <input 
+                    type="text" 
+                    placeholder="Username" 
+                    onChange={e => setUserLogin({...userLogin, email: e.target.value })}
+                  />
+                  <input 
+                    type="password" 
+                    placeholder="Password" 
+                    onChange={e => setUserLogin({...userLogin, password: e.target.value })}
+                  />
+                  <button 
+                    type="submit" 
+                    class="btn"
+                    onClick={e => handleSubmit(e, 'login')}
+                  >
+                  Login
+                  </button>
+                  <Link to="/">Forgot Password</Link>
                 </form>
                 <form action="" id="RegForm">
                   <input type="text" placeholder="Username" />

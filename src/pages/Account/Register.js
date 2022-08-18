@@ -1,18 +1,18 @@
 import React from 'react';
-import SignInForm from '../../components/AccountDetail/SignInForm';
+import SignUpForm from '../../components/AccountDetail/SignUpForm';
 import Footer from '../../components/Footer/Footer';
 import Navigation from '../../components/Header/Navigation';
 import TopNav from '../../components/Header/TopNav';
 
-const Account = () => {
+const Register = () => {
   return (
     <div>
       <TopNav />
       <Navigation />
-      <SignInForm />
+      <SignUpForm />
       <Footer />
     </div>
   );
 };
 
-export default Account;
+export default Register;
