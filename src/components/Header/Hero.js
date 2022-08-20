@@ -1,28 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+// Styled Components
+import { StyledHero, HeroContent, HeroContentLeft, HeroContentSubtitle, HeroContentTitle, HeroContentSpanColor, HeroContentH5, HeroContentRight, HeroButton } from './Hero.styled';
 
 const Hero = () => {
   return (
     <>
-      <div className="hero">
-        <div className="hero-content d-flex container">
-          <div className="left">
-            <span className="subtitle">GET YOUR SPRING COLLECTION</span>
-            <h1 className="title">
+      <StyledHero>
+        <HeroContent>
+          <HeroContentLeft>
+            <HeroContentSubtitle>GET YOUR SPRING COLLECTION</HeroContentSubtitle>
+            <HeroContentTitle>
               Up to
-              <span className="color"> 90% <br />
-                Discount </span>
+              <HeroContentSpanColor> 90% <br />
+                Discount </HeroContentSpanColor>
               on This <br />
               Independence Month
-            </h1>
-            <h5>From 1th August to 31st August</h5>
-            <Link to="/product" className="btn">SHOP NOW</Link>
+            </HeroContentTitle>
+            <HeroContentH5>From 1th August to 31st August</HeroContentH5>
+            <HeroButton to="/product">SHOP NOW</HeroButton>
+          </HeroContentLeft>
+          <div>
+            <HeroContentRight src={require("../../assets/images/banner.png")} alt="" />
           </div>
-          <div className="right">
-            <img src={require("../../assets/images/banner.png")} alt="" />
-          </div>
-        </div>
-      </div>
+        </HeroContent>
+      </StyledHero>
     </>
   );
 };

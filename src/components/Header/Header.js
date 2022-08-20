@@ -1,4 +1,9 @@
 import React from 'react';
+
+// styled-component
+import { StyledHeader, } from './Header.styled';
+
+// Components
 import Hero from './Hero';
 import Navigation from './Navigation';
 import TopNav from './TopNav';
@@ -6,14 +11,14 @@ import TopNav from './TopNav';
 const Header = () => {
   return (
     <div>
-      <header class="header" id="header">
+      <StyledHeader>
         {/* Top Navigation */}
         <TopNav />
         {/* Navigation */}
         <Navigation />
         {/* Hero Section */}
         <Hero />
-      </header>
+      </StyledHeader>
     </div>
   );
 };
