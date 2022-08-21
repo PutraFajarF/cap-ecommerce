@@ -53,10 +53,20 @@ export const LoginForm = styled.div`
       padding: 1rem 3rem;
       margin-right: 1.5rem;
       margin-top: 1rem;
-      background-color: var(--green);
+      background-color: #54BAB9;
       color: white;
       cursor: pointer;
-      border-radius: 4px
+      border-radius: 4px;
+
+      &:hover {
+        color: #fff;
+        background-color: grey;
+      }
+
+      &:active {
+        color: #fff;
+        background-color: #54BAB9;
+      }
     }
   }
 `

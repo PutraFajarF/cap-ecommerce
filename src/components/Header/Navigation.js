@@ -4,10 +4,9 @@ import {
   logout
 } from '../../config/Firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
 
 // Styled Components
-import { StyledNavigation, StyledNavCenter, LinkLogo, NavLink, StyledNavList, StyledNavItem, StyledNavIcon, StyledLinkIcon, StyledDivIcon, StyledSpanIcon } from './Navigation.styled';
+import { StyledNavigation, StyledNavCenter, LinkLogo, NavLink, StyledNavList, StyledNavItem, StyledNavIcon, StyledLinkIcon, SearchIcon, StyledDivIcon, StyledSpanIcon } from './Navigation.styled';
 
 const Navigation = () => {
   const [user] = useAuthState(auth);
@@ -41,9 +40,9 @@ const Navigation = () => {
               </StyledLinkIcon>
             )}
             <StyledDivIcon>
-              <Link to="/product">
+              <SearchIcon to="/product">
                 <i className="bx bx-search"></i>
-              </Link>
+              </SearchIcon>
             </StyledDivIcon>
             {user && (
               <StyledLinkIcon to={user ? '/cart' : '/login'}>
