@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link as Scroll } from 'react-scroll'
 import { Link } from "react-router-dom";
 
 export const StyledNavigation = styled.div`
@@ -38,6 +39,24 @@ export const NavLink = styled(Link)`
   font-size: 2rem;
   padding: 1rem;
 
+  &:hover {
+    color: #54BAB9;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-right: 0.2rem;
+  }
+
+  @media (max-width: 585px) {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-right: 0.2rem;
+  }
+`
+
+export const StyledScroll = styled(Scroll)`
   &:hover {
     color: #54BAB9;
   }
