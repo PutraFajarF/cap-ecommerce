@@ -1,22 +1,25 @@
 import React from 'react';
 
+// Styled Components
+import { StyledNewsLetter, Container, NewsLetterContent, NewsLetterData, NewsLetterEmail, NewsLetterLink } from './NewsLetter.styled';
+
 const NewsLetter = () => {
   return (
     <>
-      <section class="section newsletter" id="contact">
-        <div class="container">
-          <div class="newsletter__content">
-            <div class="newsletter__data">
+      <StyledNewsLetter>
+        <Container>
+          <NewsLetterContent>
+            <NewsLetterData>
               <h3>SUBSCRIBE TO OUR NEWSLETTER</h3>
               <p>A short sentence describing what someone will receive by subscribing</p>
-            </div>
+            </NewsLetterData>
             <form action="#">
-              <input type="email" placeholder="Enter your email address" class="newsletter__email" />
-              <a class="newsletter__link" href="/#">subscribe</a>
+              <NewsLetterEmail type="email" placeholder="Enter your email address.." />
+              <NewsLetterLink to='/'>Subscribe</NewsLetterLink>
             </form>
-          </div>
-        </div>
-      </section>
+          </NewsLetterContent>
+        </Container>
+      </StyledNewsLetter>
     </>
   );
 };

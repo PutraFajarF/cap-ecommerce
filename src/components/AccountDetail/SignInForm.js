@@ -7,6 +7,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+// Styled Components
+import { StyledContainer, LoginForm } from './SignUpForm.styled';
+
 const SignInForm = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
@@ -27,8 +30,8 @@ const SignInForm = () => {
   }, [loading, user, error, navigate]);
   return (
     <>
-      <div className="container">
-        <div className="login-form">
+      <StyledContainer>
+        <LoginForm>
           <form action="">
             <h1>Login</h1>
 
@@ -54,17 +57,16 @@ const SignInForm = () => {
               <Link to="/register"> Sign Up</Link>
             </p>
 
-            <div className="buttons">
+            <div>
               <button 
                 type="submit" 
-                className="signupbtn"
                 onClick={e => handleSubmit(e)}
               >Login
               </button>
             </div>
           </form>
-        </div>
-      </div>
+        </LoginForm>
+      </StyledContainer>
     </>
   );
 };

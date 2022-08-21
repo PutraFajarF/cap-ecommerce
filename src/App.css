@@ -63,9 +63,9 @@ li {
 }
 
 .top-nav {
-  background-color: var(--green);
+  background-color: #54BAB9;
   font-size: 1.3rem;
-  color: var(--white);
+  color: #fff;
 }
 
 .top-nav div {
@@ -102,7 +102,7 @@ li {
 }
 
 .nav-center .nav-link:hover {
-  color: var(--green);
+  color: #54BAB9;
 }
 
 .nav-center .hamburger {
@@ -130,8 +130,8 @@ li {
   position: absolute;
   top: 3px;
   right: -3px;
-  background-color: var(--green);
-  color: var(--white);
+  background-color: #54BAB9;
+  color: #fff;
   border-radius: 50%;
   font-size: 1.3rem;
   height: 2rem;
@@ -197,7 +197,7 @@ li {
 /* Hero */
 .hero {
   height: calc(100vh - 7rem);
-  background-color: var(--grey2);
+  background-color: #C4DFAA;
   overflow: hidden;
   position: relative;
   z-index: 0;
@@ -225,7 +225,7 @@ li {
 }
 
 .hero-content .left .color {
-  color: var(--red);
+  color: #C21010;
 }
 
 .hero-content .left h5 {
@@ -236,9 +236,9 @@ li {
 .btn {
   display: inline-block;
   border-radius: 5rem;
-  background-color: var(--red);
+  background-color: #C21010;
   padding: 1.3rem 5rem;
-  color: var(--white);
+  color: #fff;
   font-weight: 600;
   box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.3);
   margin-top: 4rem;
@@ -456,7 +456,7 @@ li {
 }
 
 .product-info a:hover {
-  color: var(--green);
+  color: #54BAB9;
 }
 
 .product-item .icons {
@@ -469,7 +469,7 @@ li {
 }
 
 .product-item .icons li {
-  background-color: var(--white);
+  background-color: #fff;
   text-align: center;
   padding: 1rem 1.5rem;
   font-size: 2.3rem;
@@ -540,9 +540,9 @@ li {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background-color: var(--green);
+  background-color: #54BAB9;
   padding: 0.5rem 1rem;
-  color: var(--white);
+  color: #fff;
   border-radius: 2rem;
   font-size: 1.5rem;
 }
@@ -576,7 +576,7 @@ li {
 
 .banner {
   position: relative;
-  background-color: var(--grey2);
+  background-color: #C4DFAA;
   padding: 14rem 20%;
 }
 
@@ -597,7 +597,7 @@ li {
 
 .banner h1 {
   font-size: 5.4rem;
-  color: var(--black);
+  color: #222;
   margin-bottom: 1.5rem;
 }
 
@@ -689,7 +689,7 @@ li {
 
 /* Facility Section */
 .facility__section {
-  background-color: var(--grey3);
+  background-color: #EEEEEE;
   padding: 6rem 0;
 }
 
@@ -768,7 +768,7 @@ li {
 /* Newsletter */
 .newsletter {
   padding: 6rem 0;
-  border-top: 1px solid var(--grey3);
+  border-top: 1px solid #EEEEEE;
 }
 
 .newsletter__content {
@@ -785,7 +785,7 @@ li {
 
 .newsletter__data p {
   font-size: 1.5rem;
-  color: var(--black2);
+  color: #222;
 }
 
 .newsletter__email {
@@ -793,7 +793,7 @@ li {
   display: inline-block;
   width: 37rem;
   padding: 1.6rem;
-  background-color: var(--grey3);
+  background-color: #EEEEEE;
   border: none;
   text-indent: 1rem;
 }
@@ -807,8 +807,8 @@ li {
   display: inline-block;
   padding: 1.4rem 3rem;
   margin-left: -0.5rem;
-  background-color: var(--black);
-  color: var(--white);
+  background-color: #222;
+  color: #fff;
   transition: 0.3s;
 }
 
@@ -873,7 +873,7 @@ li {
 
 /* Footer */
 .footer {
-  background-color: var(--green);
+  background-color: #54BAB9;
   padding: 6rem 1rem;
   line-height: 3rem;
 }
@@ -885,7 +885,7 @@ li {
 .footer-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  color: var(--white);
+  color: #fff;
 }
 
 .footer-center a:link,
@@ -897,7 +897,7 @@ li {
 }
 
 .footer-center a:hover {
-  color: var(--grey2);
+  color: #C4DFAA;
 }
 
 .footer-center div {
@@ -1189,100 +1189,6 @@ th:last-child {
     display: none;
   }
 }
-
-/* Account Page */
-/* .container-1 {
-  max-width: 1300px;
-  margin: auto;
-  padding-left: 25px;
-  padding-right: 25px;
-}
-
-.row {
-  margin-top: 50px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.col-2 {
-  flex-basis: 50%;
-  min-width: 300px;
-  min-height: 600px;
-}
-
-.account-page {
-  padding: 50px 0;
-  background: radial-gradient(#fff, var(--grey3));
-}
-.form-container {
-  background: var(white);
-  width: 300px;
-  height: 400px;
-  position: relative;
-  text-align: center;
-  padding: 20px 0;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.form-container span {
-  font-weight: bold;
-  padding: 0 10px;
-  color: #555;
-  cursor: pointer;
-  width: 100px;
-  display: inline-block;
-}
-
-.form-btn {
-  display: inline-block;
-}
-.form-container form {
-  max-width: 300px;
-  padding: 0 20px;
-  position: absolute;
-  top: 130px;
-  transition: transform 1s;
-}
-form input {
-  width: 100%;
-  height: 30px;
-  margin: 10px 0;
-  padding: 0 10px;
-  border: 1px solid #ccc;
-}
-
-form .btn {
-  width: 100%;
-  border: none;
-  cursor: pointer;
-  margin: 10px;
-}
-form .btn:focus {
-  outline: none;
-}
-
-#LoginForm {
-  left: -300px;
-}
-#RegForm {
-  left: 0;
-}
-
-form a {
-  font-size: 12px;
-}
-#indicator {
-  width: 100px;
-  border: none;
-  background: #ff523b;
-  height: 3px;
-  margin-top: 8px;
-  transform: translateX(100px);
-  transition: transform 1s;
-} */
 
 /* Login/Register Form */
 .login-form {

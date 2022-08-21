@@ -1,19 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+// Styled Components
+import { StyledTopNav, StyledTopNavDiv, TopNavUl, TopNavLink } from './TopNav.styled';
 
 const TopNav = () => {
   return (
     <>
-      <div className="top-nav">
-        <div className="container d-flex">
+      <StyledTopNav>
+        <StyledTopNavDiv>
           <p>Order Online or Call us: (0251) 8331-555</p>
-          <ul className="d-flex">
-            <li><Link to="#contact">About Us</Link></li>
-            <li><Link to="#contact">FAQ</Link></li>
-            <li><Link to="#contact">Contact</Link></li>
-          </ul>
-        </div>
-      </div>
+          <TopNavUl>
+            <li><TopNavLink to="#contact">About Us</TopNavLink></li>
+            <li><TopNavLink to="#contact">FAQ</TopNavLink></li>
+            <li><TopNavLink to="#contact">Contact</TopNavLink></li>
+          </TopNavUl>
+        </StyledTopNavDiv>
+      </StyledTopNav>
     </>
   );
 };

@@ -6,62 +6,54 @@ import {
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 
+// Styled Components
+import { StyledNavigation, StyledNavCenter, LinkLogo, NavLink, StyledNavList, StyledNavItem, StyledNavIcon, StyledLinkIcon, StyledDivIcon, StyledSpanIcon } from './Navigation.styled';
+
 const Navigation = () => {
   const [user] = useAuthState(auth);
   return (
     <>
-      <div className="navigation">
-        <div className="nav-center container d-flex">
-          <Link to="/" className="logo"><h1>CapToko</h1></Link>
-          <ul className="nav-list d-flex">
-            <li className="nav-item">
-              <Link to="/" className="nav-link">Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link to={user ? "/product" : "/login"} className="nav-link">Shop</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="#contact" className="nav-link">Contact</Link>
-            </li>
-            <li className="icons d-flex">
-              <Link to="/login" className="icon">
-                <i className="bx bx-user"></i>
-              </Link>
-              <div className="icon">
-                <i className="bx bx-search"></i>
-              </div>
-              <Link to="/cart" className="icon">
-                <i className="bx bx-cart"></i>
-                <span className="d-flex">0</span>
-              </Link>
-            </li>
-          </ul>
+      <StyledNavigation>
+        <StyledNavCenter>
+          <LinkLogo to="/">
+            <h1>&#10051; CapToko</h1>
+          </LinkLogo>
+          <StyledNavList>
+            <StyledNavItem>
+              <NavLink to="/">Home</NavLink>
+            </StyledNavItem>
+            <StyledNavItem>
+              <NavLink to="/product">Shop</NavLink>
+            </StyledNavItem>
+            <StyledNavItem>
+              <NavLink to="#contact">Contact</NavLink>
+            </StyledNavItem>
+          </StyledNavList>
           {/* Icons */}
-          <div className="icons d-flex">
+          <StyledNavIcon>
             {user ? (
-              <Link to="/login" className="icon" onClick={logout}>
+              <StyledLinkIcon to="/login" onClick={logout}>
                 <i className="bx bx-user">Logout</i>
-              </Link>
+              </StyledLinkIcon>
             ) : (
-              <Link to="/login" className="icon">
+              <StyledLinkIcon to="/login">
                 <i className="bx bx-user">Login</i>
-              </Link>
+              </StyledLinkIcon>
             )}
-            <div className="icon">
-              <Link to="product/1">
+            <StyledDivIcon>
+              <Link to="/product">
                 <i className="bx bx-search"></i>
               </Link>
-            </div>
-            <Link to={user ? '/cart' : '/login'} className="icon">
-              <i className="bx bx-cart"></i>
-              <span className="d-flex">0</span>
-            </Link>
-          </div>
-          <div className="hamburger">
-            <i className="bx bx-menu-alt-left"></i>
-          </div>
-        </div>
-      </div>
+            </StyledDivIcon>
+            {user && (
+              <StyledLinkIcon to={user ? '/cart' : '/login'}>
+                <i className="bx bx-cart"></i>
+                <StyledSpanIcon>0</StyledSpanIcon>
+              </StyledLinkIcon>
+            )}
+          </StyledNavIcon>
+        </StyledNavCenter>
+      </StyledNavigation>
     </>
   );
 };
