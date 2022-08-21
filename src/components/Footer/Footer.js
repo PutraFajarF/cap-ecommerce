@@ -6,7 +6,7 @@ import { StyledFooter, Container, FooterContainer, FooterCenter } from './Footer
 const Footer = () => {
   return (
     <>
-      <StyledFooter>
+      <StyledFooter id='contact'>
         <Container>
           <FooterContainer>
             <FooterCenter>

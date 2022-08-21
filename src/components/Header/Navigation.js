@@ -6,7 +6,7 @@ import {
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 // Styled Components
-import { StyledNavigation, StyledNavCenter, LinkLogo, NavLink, StyledNavList, StyledNavItem, StyledNavIcon, StyledLinkIcon, SearchIcon, StyledDivIcon, StyledSpanIcon } from './Navigation.styled';
+import { StyledNavigation, StyledNavCenter, LinkLogo, NavLink, StyledScroll, StyledNavList, StyledNavItem, StyledNavIcon, StyledLinkIcon, SearchIcon, StyledDivIcon, StyledSpanIcon } from './Navigation.styled';
 
 const Navigation = () => {
   const [user] = useAuthState(auth);
@@ -25,7 +25,7 @@ const Navigation = () => {
               <NavLink to="/product">Shop</NavLink>
             </StyledNavItem>
             <StyledNavItem>
-              <NavLink to="#contact">Contact</NavLink>
+              <StyledScroll to="contact" style={{cursor:"pointer"}} spy={true} smooth={true} offset={0} duration={1500}>Contact</StyledScroll>
             </StyledNavItem>
           </StyledNavList>
           {/* Icons */}
