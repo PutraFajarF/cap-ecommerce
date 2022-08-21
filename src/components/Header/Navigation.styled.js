@@ -95,16 +95,37 @@ export const StyledLinkIcon = styled(Link)`
   position: relative;
   margin-right: 0.5rem;
 
+  i {
+    font-weight: bold;
+  }
+
   &:hover {
     transform: scale(1.1);
     transition: ease-in-out;
+    color: #54BAB9;
   }
 
   &:active {
     transform: translate(5px, 10%);
-
+  }
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+`
+
+export const SearchIcon = styled(Link)`
+  i {
+    &:hover {
+      transform: scale(1.1);
+      transition: ease-in-out;
+      color: #54BAB9;
+      font-weight: bold;
+    }
+
+    &:active {
+      transform: translate(5px, 10%);
+    }
   }
 `
 

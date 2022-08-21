@@ -103,6 +103,7 @@ li {
 
 .nav-center .nav-link:hover {
   color: #54BAB9;
+  transition: ease-in-out;
 }
 
 .nav-center .hamburger {
