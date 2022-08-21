@@ -1,46 +1,40 @@
 import React from 'react';
+// Styled Components
+import { StyledFacility, Container, FacilityContainer, FacilityBox, FacilityImg } from './Fasility.styled';
 
 const Fasility = () => {
   return (
     <>
-      <section class="facility__section section" id="facility">
-        <div class="container">
-          <div class="facility__contianer" data-aos="fade-up" data-aos-duration="1200">
-            <div class="facility__box">
-              <div class="facility-img__container">
-                <svg viewBox='0 0 20 20' className='icon icon-airplane'>
-                  <use xlinkHref="../../assets/images/sprite.svg#icon-airplane"></use>
-                </svg>
-              </div>
+      <StyledFacility>
+        <Container>
+          <FacilityContainer data-aos="fade-up" data-aos-duration="1200">
+            <FacilityBox>
+              <FacilityImg>
+                <img src={require('../../assets/images/airplane.png')} alt='plane'></img>
+              </FacilityImg>
               <p>FREE SHIPPING WORLD WIDE</p>
-            </div>
-            <div class="facility__box">
-              <div class="facility-img__container">
-                <svg>
-                  <use xmlnsXlink="../../assets/images/sprite.svg#icon-credit-card-alt"></use>
-                </svg>
-              </div>
+            </FacilityBox>
+            <FacilityBox>
+              <FacilityImg>
+                <img src={require('../../assets/images/save-money.png')} alt='money'></img>
+              </FacilityImg>
               <p>100% MONEY BACK GUARANTEE</p>
-            </div>
-            <div class="facility__box">
-              <div class="facility-img__container">
-                <svg>
-                  <use xmlnsXlink="/#./images/sprite.svg#icon-credit-card"></use>
-                </svg>
-              </div>
+            </FacilityBox>
+            <FacilityBox>
+              <FacilityImg>
+                <img src={require('../../assets/images/creditcard.png')} alt='credit-card'></img>
+              </FacilityImg>
               <p>MANY PAYMENT GATWAYS</p>
-            </div>
-            <div class="facility__box">
-              <div class="facility-img__container">
-                <svg>
-                  <use xmlnsXlink="/#./images/sprite.svg#icon-headphones"></use>
-                </svg>
-              </div>
+            </FacilityBox>
+            <FacilityBox>
+              <FacilityImg>
+                <img src={require('../../assets/images/support.png')} alt='support'></img>
+              </FacilityImg>
               <p>24/7 ONLINE SUPPORT</p>
-            </div>
-          </div>
-        </div>
-      </section>
+            </FacilityBox>
+          </FacilityContainer>
+        </Container>
+      </StyledFacility>
     </>
   );
 };

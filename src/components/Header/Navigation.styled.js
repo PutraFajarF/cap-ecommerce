@@ -15,29 +15,70 @@ export const StyledNavCenter = styled.div`
   justify-content: space-between;
 `
 
+export const LinkLogo = styled(Link)`
+  &:hover {
+    transform: scale(1.1);
+    transition: ease-in-out;
+    color: #54BAB9;
+  }
+
+  &:active {
+    transform: translate(5px, 10%);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 585px) {
+    font-size: 0.8rem;
+  }
+`
+
+export const NavLink = styled(Link)`
+  font-size: 2rem;
+  padding: 1rem;
+
+  &:hover {
+    color: #54BAB9;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-right: 0.2rem;
+  }
+
+  @media (max-width: 585px) {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-right: 0.2rem;
+  }
+`
+
 export const StyledNavList = styled.ul`
   display: flex;
   align-items: center;
-
-  ${'' /* @media (max-width: 768px) {
-    position: fixed;
-    top: 12%;
-    left: -35rem;
-    flex-direction: column;
-    align-items: flex-start;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-    background-color: var(--white);
-    height: 100%;
-    width: 0%;
-    max-width: 35rem;
-    z-index: 100;
-    transition: all 300ms ease-in-out;
-  } */}
 `
 
 export const StyledNavItem = styled.li`
   margin: 0 0 1rem 1rem;
+  margin-right: 0.2rem;
   width: 100%;
+  font-size: 2rem;
+  font-weight: bold;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: ease-in-out;
+  }
+
+  &:active {
+    transform: translate(5px, 10%);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `
 
 export const StyledNavIcon = styled.li`
@@ -48,10 +89,23 @@ export const StyledNavIcon = styled.li`
 export const StyledLinkIcon = styled(Link)`
   cursor: pointer;
   font-size: 2.5rem;
+  font-weight: bold;
   padding: 0 1rem;
   color: #555;
   position: relative;
   margin-right: 0.5rem;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: ease-in-out;
+  }
+
+  &:active {
+    transform: translate(5px, 10%);
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `
 
 export const StyledDivIcon = styled.div`
@@ -61,6 +115,10 @@ export const StyledDivIcon = styled.div`
   color: #555;
   position: relative;
   margin-right: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `
 
 export const StyledSpanIcon = styled.span`

@@ -1,30 +1,33 @@
 import React from 'react';
 
+// Styled Components
+import { StyledSectionCategory, CatCenter, Category, CatImg, CatDiv } from './CategoriesSection.styled';
+
 const CategoriesSection = () => {
   return (
     <>
-      <section class="section category">
-        <div class="cat-center">
-          <div class="cat">
-            <img src={require("../../assets/images/cat3.jpg")} alt="" />
-            <div>
+      <StyledSectionCategory>
+        <CatCenter>
+          <Category>
+            <CatImg src={require("../../assets/images/cat3.jpg")} alt="" />
+            <CatDiv>
               <p>WOMEN'S WEAR</p>
-            </div>
-          </div>
-          <div class="cat">
-            <img src={require("../../assets/images/cat2.jpg")} alt="" />
-            <div>
+            </CatDiv>
+          </Category>
+          <Category>
+            <CatImg src={require("../../assets/images/cat2.jpg")} alt="" />
+            <CatDiv>
               <p>ACCESSORIES</p>
-            </div>
-          </div>
-          <div class="cat">
-            <img src={require("../../assets/images/cat1.jpg")} alt="" />
-            <div>
+            </CatDiv>
+          </Category>
+          <Category>
+            <CatImg src={require("../../assets/images/cat1.jpg")} alt="" />
+            <CatDiv>
               <p>MEN'S WEAR</p>
-            </div>
-          </div>
-        </div>
-      </section>
+            </CatDiv>
+          </Category>
+        </CatCenter>
+      </StyledSectionCategory>
     </>
   );
 };

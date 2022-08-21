@@ -1,20 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+// Styled Components
+import { StyledBanner, BannerLeft, BannerRight, BannerTrend, BannerRightImg, SpanColor, BannerButton } from './Promotion.styled';
 
 const Promotion = () => {
   return (
     <>
-      <section class="section banner">
-        <div class="left">
-          <span class="trend">Trend Design</span>
+      <StyledBanner>
+        <BannerLeft>
+          <BannerTrend>Trend Design</BannerTrend>
           <h1>New Collection 2022</h1>
-          <p>New Arrival <span class="color">Sale 50% OFF</span> Limited Time Offer</p>
-          <Link to="/product" class="btn btn-1">Discover Now</Link>
-        </div>
-        <div class="right">
-          <img src={require("../../assets/images/banner2.png")} alt="" />
-        </div>
-      </section>
+          <p>New Arrival <SpanColor>Sale 50% OFF</SpanColor> Limited Time Offer</p>
+          <BannerButton to="/product">Discover Now</BannerButton>
+        </BannerLeft>
+        <BannerRight>
+          <BannerRightImg src={require("../../assets/images/banner2.png")} alt="" />
+        </BannerRight>
+      </StyledBanner>
     </>
   );
 };

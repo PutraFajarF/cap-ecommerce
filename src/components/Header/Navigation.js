@@ -7,7 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 
 // Styled Components
-import { StyledNavigation, StyledNavCenter, StyledNavList, StyledNavItem, StyledNavIcon, StyledLinkIcon, StyledDivIcon, StyledSpanIcon } from './Navigation.styled';
+import { StyledNavigation, StyledNavCenter, LinkLogo, NavLink, StyledNavList, StyledNavItem, StyledNavIcon, StyledLinkIcon, StyledDivIcon, StyledSpanIcon } from './Navigation.styled';
 
 const Navigation = () => {
   const [user] = useAuthState(auth);
@@ -15,16 +15,18 @@ const Navigation = () => {
     <>
       <StyledNavigation>
         <StyledNavCenter>
-          <Link to="/" className="logo"><h1>CapToko</h1></Link>
+          <LinkLogo to="/">
+            <h1>&#10051; CapToko</h1>
+          </LinkLogo>
           <StyledNavList>
             <StyledNavItem>
-              <Link to="/" className="nav-link">Home</Link>
+              <NavLink to="/">Home</NavLink>
             </StyledNavItem>
             <StyledNavItem>
-              <Link to={user ? "/product" : "/login"} className="nav-link">Shop</Link>
+              <NavLink to="/product">Shop</NavLink>
             </StyledNavItem>
             <StyledNavItem>
-              <Link to="#contact" className="nav-link">Contact</Link>
+              <NavLink to="#contact">Contact</NavLink>
             </StyledNavItem>
           </StyledNavList>
           {/* Icons */}
@@ -39,14 +41,16 @@ const Navigation = () => {
               </StyledLinkIcon>
             )}
             <StyledDivIcon>
-              <Link to="product/1">
+              <Link to="/product">
                 <i className="bx bx-search"></i>
               </Link>
             </StyledDivIcon>
-            <StyledLinkIcon to={user ? '/cart' : '/login'}>
-              <i className="bx bx-cart"></i>
-              <StyledSpanIcon>0</StyledSpanIcon>
-            </StyledLinkIcon>
+            {user && (
+              <StyledLinkIcon to={user ? '/cart' : '/login'}>
+                <i className="bx bx-cart"></i>
+                <StyledSpanIcon>0</StyledSpanIcon>
+              </StyledLinkIcon>
+            )}
           </StyledNavIcon>
         </StyledNavCenter>
       </StyledNavigation>

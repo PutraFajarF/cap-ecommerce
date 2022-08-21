@@ -92,6 +92,17 @@ export const HeroButton = styled(Link)`
   box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.3);
   margin-top: 4rem;
 
+  &:hover {
+    transform: scale(1.1);
+    transition: .5s ease-in-out;
+    background-color: #fff;
+    color: #C21010;
+  }
+
+  &:active {
+    transform: translate(5px, 10%);
+  }
+  
   @media (max-width: 996px) {
     padding: 1.2rem 4rem;
   }
