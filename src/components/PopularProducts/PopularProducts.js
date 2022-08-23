@@ -51,7 +51,7 @@ const PopularProducts = () => {
           </ProductItem>
           <ProductItem>
             <ProductOverlay>
-              <Link to="/product/1" class="product-thumb">
+              <Link to="/product/1">
                 <ProductThumbImg src={require("../../assets/images/product-1.jpg")} alt="" />
               </Link>
               <span>40%</span>
@@ -67,7 +67,7 @@ const PopularProducts = () => {
           </ProductItem>
           <ProductItem>
             <ProductOverlay>
-              <Link to="/product/1" class="product-thumb">
+              <Link to="/product/1">
               <ProductThumbImg src={require("../../assets/images/product-6.jpg")} alt="" />
               </Link>
             </ProductOverlay>

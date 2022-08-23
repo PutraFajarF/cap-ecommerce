@@ -25,7 +25,7 @@ export const HeroContentLeft = styled.div`
   margin-top: -5rem;
 
   @media (max-width: 768px) {
-    margin-top: -35rem;
+    margin-top: -20rem;
   }
 
   @media (max-width: 567px) {

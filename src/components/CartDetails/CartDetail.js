@@ -137,7 +137,7 @@ const CartDetail = () => {
               <Link to="/product/1">
                 <ProductThumbImg src={require("../../assets/images/product-1.jpg")} alt="" />
               </Link>
-              <span class="discount">40%</span>
+              <span className="discount">40%</span>
             </ProductOverlay>
             <ProductInfo>
               <span>MEN'S CLOTHES</span>
