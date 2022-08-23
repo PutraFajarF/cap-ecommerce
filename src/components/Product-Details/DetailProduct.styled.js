@@ -155,3 +155,15 @@ export const TopContainer = styled.div`
   margin-bottom: 4rem;
 `
 
+export const ProductDetailLinkInfo = styled.div`
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 1rem;
+  transition: all 300ms ease;
+  cursor: pointer;
+
+  &:hover {
+    color: #54BAB9;
+  }
+`
+
