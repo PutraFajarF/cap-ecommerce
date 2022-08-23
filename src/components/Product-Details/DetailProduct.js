@@ -1,31 +1,45 @@
 import React from 'react';
 import { auth } from '../../config/Firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+
+// API Hooks
+import { useAllProducts } from '../../hooks/useAllProducts';
 
 // Styled Components
-import { StyledProductDetail, DetailContainer, DetailLeft, DetailRight, DetailRightForm, SectionFeatured, TopContainer } from './DetailProduct.styled';
-import { ProductCenter, ProductItem, ProductOverlay, ProductThumbImg, ProductInfo, ProductInfoLink, ProductIcon, ProductToCartLink } from '../New-Arrival/NewArrival.styled';
+import { StyledProductDetail, DetailContainer, DetailLeft, DetailRight, DetailRightForm, SectionFeatured, TopContainer, ProductDetailLinkInfo } from './DetailProduct.styled';
+import { ProductCenter, ProductItem, ProductOverlay, ProductThumbImg, ProductInfo, ProductIcon, ProductToCartLink } from '../New-Arrival/NewArrival.styled';
 
 const DetailProduct = () => {
-  const [user] = useAuthState(auth)
+  const {id} = useParams();
+  const data = useAllProducts(id);
+  const product = data.apiData;
+  const dataAll = useAllProducts();
+  const products = dataAll.apiData;
+  const navigate = useNavigate();
+
+  const [user] = useAuthState(auth);
+
+  const handleClick = id => {
+    navigate(`/product/${id}`);
+  };
   return (
     <>
       <StyledProductDetail>
         <DetailContainer>
           <DetailLeft>
             <div>
-              <img src={require("../../assets/images/product-5.jpg")} alt="" />
+              <img src={product.image} alt="" />
             </div>
           </DetailLeft>
           <DetailRight>
-            <span>Home/T-shirt</span>
-            <h1>Boy’s T-Shirt By Handsome</h1>
-            <h2>185.000</h2>
+            <span>Home / Product / Product Detail</span>
+            <h1>{product.name}</h1>
+            <h2>$ {product.price}</h2>
             <form>
               <div>
                 <select>
-                  <option value="Select Size" selected disabled>
+                  <option defaultValue="Select Size" disabled>
                     Select Size
                   </option>
                   <option value="1">32</option>
@@ -42,9 +56,7 @@ const DetailProduct = () => {
             </DetailRightForm>
             <h3>Product Detail</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero minima
-              delectus nulla voluptates nesciunt quidem laudantium, quisquam
-              voluptas facilis dicta in explicabo, laboriosam ipsam suscipit!
+              {product.description}
             </p>
           </DetailRight>
         </DetailContainer>
@@ -57,68 +69,24 @@ const DetailProduct = () => {
           <Link to="/product">View more</Link>
         </TopContainer>
         <ProductCenter>
-          <ProductItem>
-            <ProductOverlay>
-              <Link to="/product/1">
-                <ProductThumbImg src={require("../../assets/images/product-5.jpg")} alt="" />
-              </Link>
-            </ProductOverlay>
-            <ProductInfo>
-              <span>MEN'S CLOTHES</span>
-              <ProductInfoLink to="/product/1">Concepts Solid Pink Men’s Polo</ProductInfoLink>
-              <h4>150.000</h4>
-            </ProductInfo>
-            <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
-            </ProductIcon>
-          </ProductItem>
-          <ProductItem>
-            <ProductOverlay>
-              <Link to="/product/1">
-                <ProductThumbImg src={require("../../assets/images/product-2.jpg")} alt="" />
-              </Link>
-              <span>40%</span>
-            </ProductOverlay>
-            <ProductInfo>
-              <span>MEN'S CLOTHES</span>
-              <ProductInfoLink to="/product/1">Concepts Solid Pink Men’s Polo</ProductInfoLink>
-              <h4>150.000</h4>
-            </ProductInfo>
-            <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
-            </ProductIcon>
-          </ProductItem>
-          <ProductItem>
-            <ProductOverlay>
-              <Link to="/product/1">
-                <ProductThumbImg src={require("../../assets/images/product-7.jpg")} alt="" />
-              </Link>
-            </ProductOverlay>
-            <ProductInfo>
-              <span>MEN'S CLOTHES</span>
-              <ProductInfoLink to="/product/1">Concepts Solid Pink Men’s Polo</ProductInfoLink>
-              <h4>150.000</h4>
-            </ProductInfo>
-            <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
-            </ProductIcon>
-          </ProductItem>
-          <ProductItem>
-            <ProductOverlay>
-              <Link to="/product/1">
-                <ProductThumbImg src={require("../../assets/images/product-4.jpg")} alt="" />
-              </Link>
-              <span>40%</span>
-            </ProductOverlay>
-            <ProductInfo>
-              <span>MEN'S CLOTHES</span>
-              <ProductInfoLink to="/product/1">Concepts Solid Pink Men’s Polo</ProductInfoLink>
-              <h4>150.000</h4>
-            </ProductInfo>
-            <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
-            </ProductIcon>
-          </ProductItem>
+          {products.map((prod, index) => (
+            <ProductItem key={index}>
+              <ProductOverlay>
+                <Link to={`product/${prod.id}`}>
+                  <ProductThumbImg src={prod.image} alt={prod.name} />
+                </Link>
+                {prod.discount && <span>40%</span>}
+              </ProductOverlay>
+              <ProductInfo>
+                <span>{prod.category}</span>
+                <ProductDetailLinkInfo onClick={() => handleClick(prod.id)}>{prod.name}</ProductDetailLinkInfo>
+                <h4>$ {prod.price}</h4>
+              </ProductInfo>
+              <ProductIcon>
+                <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              </ProductIcon>
+            </ProductItem>
+          ))}
         </ProductCenter>
       </SectionFeatured>
     </>
