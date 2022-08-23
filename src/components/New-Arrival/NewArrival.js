@@ -46,7 +46,7 @@ const NewArrival = () => {
               <h4>150.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to='/cart'><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
           <ProductItem>

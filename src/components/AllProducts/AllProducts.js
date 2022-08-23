@@ -39,7 +39,7 @@ const AllProducts = () => {
                 <Link to={`product/${product.id}`}>
                   <ProductThumbImg src={product.image} alt={product.name} />
                 </Link>
-                {product.discount && <span>40%</span>}
+                {product.discount && <span>{Math.floor(Math.random() * 55)}%</span>}
               </ProductOverlay>
               <ProductInfo>
                 <span>{product.category}</span>

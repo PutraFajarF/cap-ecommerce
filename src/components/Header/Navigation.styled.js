@@ -33,6 +33,14 @@ export const LinkLogo = styled(Link)`
   @media (max-width: 585px) {
     font-size: 0.8rem;
   }
+
+  @media (max-width: 540px) {
+    font-size: 0.5rem;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 0.3rem;
+  }
 `
 
 export const NavLink = styled(Link)`
@@ -54,6 +62,18 @@ export const NavLink = styled(Link)`
     padding: 0.5rem;
     margin-right: 0.2rem;
   }
+
+  @media (max-width: 540px) {
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-right: 0.2rem;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+    margin-right: 0.1rem;
+  }
 `
 
 export const StyledScroll = styled(Scroll)`
@@ -71,6 +91,18 @@ export const StyledScroll = styled(Scroll)`
     font-size: 1.2rem;
     padding: 0.5rem;
     margin-right: 0.2rem;
+  }
+
+  @media (max-width: 540px) {
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-right: 0.2rem;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+    margin-right: 0.1rem;
   }
 `
 
@@ -97,6 +129,10 @@ export const StyledNavItem = styled.li`
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 0.6rem;
   }
 `
 
@@ -127,8 +163,14 @@ export const StyledLinkIcon = styled(Link)`
   &:active {
     transform: translate(5px, 10%);
   }
+
   @media (max-width: 768px) {
     font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 0.9rem;
     font-weight: bold;
   }
 `
