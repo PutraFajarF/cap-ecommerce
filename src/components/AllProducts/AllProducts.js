@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   auth
 } from '../../config/Firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { image } from '../../image';
 
 // API Hooks
 import { useAllProducts } from '../../hooks/useAllProducts';
 
 // Styled Components
+import Spinner from '../Spinner/Spinner';
 import { StyledAllProducts, TopContainer, AllProductSelect, AllProductForm, Pagination, PaginationContainer } from './AllProducts.styled';
 import { ProductCenter, ProductItem, ProductOverlay, ProductThumbImg, ProductInfo, ProductInfoLink, ProductIcon, ProductToCartLink } from '../New-Arrival/NewArrival.styled';
 
 const AllProducts = () => {
   const data = useAllProducts();
-  const products = data.apiData
+  const products = data.apiData;
+  const isLoading = data.loading;
   const [user] = useAuthState(auth);
-  return (
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [products]);
+
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <>
       <StyledAllProducts>
         <TopContainer>
@@ -36,7 +46,7 @@ const AllProducts = () => {
         <ProductCenter>
           {products.map((product, index) => (
             <ProductItem key={index}>
-              <ProductOverlay>
+              <ProductOverlay onClick={() => navigate(`/product/${product.id}`)}>
                 <Link to={`product/${product.id}`}>
                   <ProductThumbImg src={image[product.image]} alt={product.name} />
                 </Link>

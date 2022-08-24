@@ -8,6 +8,7 @@ export const useAllProducts = (id) => {
   useEffect(() => {
     const getAllProducts = async () => {
       try {
+        setLoading(true);
         let response;
         if (id) {
           response = await axios.get(
@@ -20,7 +21,6 @@ export const useAllProducts = (id) => {
         }
 
         setAPIData(response.data);
-        setLoading(true);
       } catch (error) {
         console.log("error", error);
       } finally {

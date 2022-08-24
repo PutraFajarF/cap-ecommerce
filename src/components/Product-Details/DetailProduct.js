@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { auth } from '../../config/Firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useParams, useNavigate } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { image } from '../../image';
 import { useAllProducts } from '../../hooks/useAllProducts';
 
 // Styled Components
+import Spinner from '../Spinner/Spinner';
 import { StyledProductDetail, DetailContainer, DetailLeft, DetailRight, DetailRightForm, SectionFeatured, TopContainer, ProductDetailLinkInfo } from './DetailProduct.styled';
 import { ProductCenter, ProductItem, ProductOverlay, ProductThumbImg, ProductInfo, ProductIcon, ProductToCartLink } from '../New-Arrival/NewArrival.styled';
 
@@ -15,16 +16,23 @@ const DetailProduct = () => {
   const {id} = useParams();
   const data = useAllProducts(id);
   const product = data.apiData;
+  const isLoading = data.loading;
   const dataAll = useAllProducts();
   const products = dataAll.apiData;
+  const isLoadingAll = dataAll.loading;
   const navigate = useNavigate();
-
   const [user] = useAuthState(auth);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [product])
 
   const handleClick = id => {
     navigate(`/product/${id}`);
   };
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <>
       <StyledProductDetail>
         <DetailContainer>
@@ -64,32 +72,36 @@ const DetailProduct = () => {
       </StyledProductDetail>
 
       {/* Related Products */}
-      <SectionFeatured>
-        <TopContainer>
-          <h1>Related Products</h1>
-          <Link to="/product">View more</Link>
-        </TopContainer>
-        <ProductCenter>
-          {products.map((prod, index) => (
-            <ProductItem key={index}>
-              <ProductOverlay>
-                <Link to={`product/${prod.id}`}>
-                  <ProductThumbImg src={image[prod.image]} alt={prod.name} />
-                </Link>
-                {prod.discount && <span>{Math.floor(Math.random() * 55)}%</span>}
-              </ProductOverlay>
-              <ProductInfo>
-                <span>{prod.category}</span>
-                <ProductDetailLinkInfo onClick={() => handleClick(prod.id)}>{prod.name}</ProductDetailLinkInfo>
-                <h4>Rp. {prod.price}</h4>
-              </ProductInfo>
-              <ProductIcon>
-                <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
-              </ProductIcon>
-            </ProductItem>
-          ))}
-        </ProductCenter>
-      </SectionFeatured>
+      {isLoadingAll ? (
+        <Spinner />
+      ) : (
+        <SectionFeatured>
+          <TopContainer>
+            <h1>Related Products</h1>
+            <Link to="/product">View more</Link>
+          </TopContainer>
+          <ProductCenter>
+            {products.map((prod, index) => (
+              <ProductItem key={index}>
+                <ProductOverlay onClick={() => handleClick(prod.id)}>
+                  <Link to={`product/${prod.id}`}>
+                    <ProductThumbImg src={image[prod.image]} alt={prod.name} />
+                  </Link>
+                  {prod.discount && <span>{Math.floor(Math.random() * 55)}%</span>}
+                </ProductOverlay>
+                <ProductInfo>
+                  <span>{prod.category}</span>
+                  <ProductDetailLinkInfo onClick={() => handleClick(prod.id)}>{prod.name}</ProductDetailLinkInfo>
+                  <h4>Rp. {prod.price}</h4>
+                </ProductInfo>
+                <ProductIcon>
+                  <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+                </ProductIcon>
+              </ProductItem>
+            ))}
+          </ProductCenter>
+        </SectionFeatured>
+      )}
     </>
   );
 };
