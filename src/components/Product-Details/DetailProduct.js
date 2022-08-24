@@ -72,7 +72,7 @@ const DetailProduct = () => {
         <ProductCenter>
           {products.map((prod, index) => (
             <ProductItem key={index}>
-              <ProductOverlay>
+              <ProductOverlay onClick={() => handleClick(prod.id)}>
                 <Link to={`product/${prod.id}`}>
                   <ProductThumbImg src={image[prod.image]} alt={prod.name} />
                 </Link>

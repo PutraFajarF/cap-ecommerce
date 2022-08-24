@@ -3,7 +3,7 @@ import {
   auth
 } from '../../config/Firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { image } from '../../image';
 
 // API Hooks
@@ -17,6 +17,7 @@ const AllProducts = () => {
   const data = useAllProducts();
   const products = data.apiData
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
   return (
     <>
       <StyledAllProducts>
@@ -36,7 +37,7 @@ const AllProducts = () => {
         <ProductCenter>
           {products.map((product, index) => (
             <ProductItem key={index}>
-              <ProductOverlay>
+              <ProductOverlay onClick={() => navigate(`/product/${product.id}`)}>
                 <Link to={`product/${product.id}`}>
                   <ProductThumbImg src={image[product.image]} alt={product.name} />
                 </Link>
