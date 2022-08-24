@@ -10,15 +10,19 @@ import { image } from '../../image';
 import { useAllProducts } from '../../hooks/useAllProducts';
 
 // Styled Components
+import Spinner from '../Spinner/Spinner';
 import { StyledAllProducts, TopContainer, AllProductSelect, AllProductForm, Pagination, PaginationContainer } from './AllProducts.styled';
 import { ProductCenter, ProductItem, ProductOverlay, ProductThumbImg, ProductInfo, ProductInfoLink, ProductIcon, ProductToCartLink } from '../New-Arrival/NewArrival.styled';
 
 const AllProducts = () => {
   const data = useAllProducts();
-  const products = data.apiData
+  const products = data.apiData;
+  const isLoading = data.loading;
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <>
       <StyledAllProducts>
         <TopContainer>
