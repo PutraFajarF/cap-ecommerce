@@ -4,6 +4,7 @@ import {
 } from '../../config/Firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import { image } from '../../image';
 
 // API Hooks
 import { useAllProducts } from '../../hooks/useAllProducts';
@@ -37,14 +38,14 @@ const AllProducts = () => {
             <ProductItem key={index}>
               <ProductOverlay>
                 <Link to={`product/${product.id}`}>
-                  <ProductThumbImg src={product.image} alt={product.name} />
+                  <ProductThumbImg src={image[product.image]} alt={product.name} />
                 </Link>
                 {product.discount && <span>{Math.floor(Math.random() * 55)}%</span>}
               </ProductOverlay>
               <ProductInfo>
                 <span>{product.category}</span>
                 <ProductInfoLink to={`${product.id}`}>{product.name}</ProductInfoLink>
-                <h4>$ {product.price}</h4>
+                <h4>Rp. {product.price}</h4>
               </ProductInfo>
               <ProductIcon>
                 <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>

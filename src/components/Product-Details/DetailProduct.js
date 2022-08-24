@@ -2,6 +2,7 @@ import React from 'react';
 import { auth } from '../../config/Firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useParams, useNavigate } from 'react-router-dom';
+import { image } from '../../image';
 
 // API Hooks
 import { useAllProducts } from '../../hooks/useAllProducts';
@@ -29,13 +30,13 @@ const DetailProduct = () => {
         <DetailContainer>
           <DetailLeft>
             <div>
-              <img src={product.image} alt="" />
+              <img src={image[product.image]} alt={product.name} />
             </div>
           </DetailLeft>
           <DetailRight>
             <span>Home / Product / Product Detail</span>
             <h1>{product.name}</h1>
-            <h2>$ {product.price}</h2>
+            <h2>Rp. {product.price}</h2>
             <form>
               <div>
                 <select>
@@ -73,14 +74,14 @@ const DetailProduct = () => {
             <ProductItem key={index}>
               <ProductOverlay>
                 <Link to={`product/${prod.id}`}>
-                  <ProductThumbImg src={prod.image} alt={prod.name} />
+                  <ProductThumbImg src={image[prod.image]} alt={prod.name} />
                 </Link>
                 {prod.discount && <span>{Math.floor(Math.random() * 55)}%</span>}
               </ProductOverlay>
               <ProductInfo>
                 <span>{prod.category}</span>
                 <ProductDetailLinkInfo onClick={() => handleClick(prod.id)}>{prod.name}</ProductDetailLinkInfo>
-                <h4>$ {prod.price}</h4>
+                <h4>Rp. {prod.price}</h4>
               </ProductInfo>
               <ProductIcon>
                 <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
