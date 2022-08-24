@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   auth
 } from '../../config/Firebase/firebase';
@@ -20,6 +20,11 @@ const AllProducts = () => {
   const isLoading = data.loading;
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [products]);
+
   return isLoading ? (
     <Spinner />
   ) : (

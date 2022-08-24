@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { auth } from '../../config/Firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useParams, useNavigate } from 'react-router-dom';
@@ -22,6 +22,10 @@ const DetailProduct = () => {
   const isLoadingAll = dataAll.loading;
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [product])
 
   const handleClick = id => {
     navigate(`/product/${id}`);
