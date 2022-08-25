@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { auth } from '../../config/Firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { image } from '../../image';
+import { useDispatch } from 'react-redux';
 
 // API Hooks
 import { useAllProducts } from '../../hooks/useAllProducts';
@@ -14,6 +15,7 @@ import { ProductCenter, ProductItem, ProductOverlay, ProductThumbImg, ProductInf
 
 const DetailProduct = () => {
   const {id} = useParams();
+  const dispatch = useDispatch();
   const data = useAllProducts(id);
   const product = data.apiData;
   const isLoading = data.loading;
@@ -22,6 +24,10 @@ const DetailProduct = () => {
   const isLoadingAll = dataAll.loading;
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
+  const [detailOrder, setDetailOrder] = useState({
+    size: '',
+    quantity: 0
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -30,6 +36,26 @@ const DetailProduct = () => {
   const handleClick = id => {
     navigate(`/product/${id}`);
   };
+
+  const handleCart = () => {
+    if (!user) {
+      alert('Please login for add to cart')
+      navigate('/login')
+    } else {
+      const { id, name, price, image } = product;
+      const { size, quantity } = detailOrder;
+      const products = { id, name, price, image, size, quantity};
+      if (size === '' || quantity === 0) {
+        alert('Please fill all the field!')
+      } else {
+        dispatch({
+          type: 'ADD_TO_CART',
+          value: data
+        });
+        alert('Added to cart')
+      }
+    }
+  }
   return isLoading ? (
     <Spinner />
   ) : (
@@ -46,23 +72,30 @@ const DetailProduct = () => {
             <h1>{product.name}</h1>
             <h2>Rp. {product.price}</h2>
             <form>
-              <div>
-                <select>
-                  <option defaultValue="Select Size" disabled>
+              {/* <div> */}
+                <select 
+                  onChange={e => setDetailOrder({ ...detailOrder, size: e.target.value })}
+                >
+                  <option value="">
                     Select Size
                   </option>
-                  <option value="1">32</option>
-                  <option value="2">42</option>
-                  <option value="3">52</option>
-                  <option value="4">62</option>
+                  <option value="32">32</option>
+                  <option value="42">42</option>
+                  <option value="52">52</option>
+                  <option value="62">62</option>
                 </select>
                 <span><i className="bx bx-chevron-down"></i></span>
-              </div>
+              {/* </div> */}
             </form>
-            <DetailRightForm>
-              <input type="text" placeholder="1" />
-              <Link to={user ? "/cart" : "/login"}>Add To Cart</Link>
-            </DetailRightForm>
+            {/* <DetailRightForm> */}
+              <input 
+                type="number" 
+                min="1"
+                defaultValue={0}
+                onChange={(e) => setDetailOrder({ ...detailOrder, quantity: e.target.value })}
+              />
+              <button onClick={handleCart}>Add To Cart</button>
+            {/* </DetailRightForm> */}
             <h3>Product Detail</h3>
             <p>
               {product.description}

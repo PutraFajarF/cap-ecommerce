@@ -4,12 +4,24 @@ import {
 } from '../../config/Firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import { image } from '../../image';
+
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
 
 // Styled Components
 import { CartContainer, CartInfo, CartTotalPrice, CartButton, SectionFeatured, TopContainer } from './CartDetails.styled';
 import { ProductCenter, ProductItem, ProductOverlay, ProductThumbImg, ProductInfo, ProductInfoLink, ProductIcon, ProductToCartLink } from '../New-Arrival/NewArrival.styled';
 
 const CartDetail = () => {
+  const dispatch = useDispatch();
+  const { data } = useSelector(state => state.orderProduct);
+  const subTotalPrice = data.reduce(
+    (acc, curr) => acc + curr.price * curr.quantity,
+    0
+  );
+  const tax = ((10 / 100) * subTotalPrice).toFixed(2);
+  const totalPrice = (subTotalPrice + parseFloat(tax)).toFixed(2);
   const [user] = useAuthState(auth);
   return (
     <>
@@ -20,90 +32,54 @@ const CartDetail = () => {
             <th>Quantity</th>
             <th>Subtotal</th>
           </tr>
-          <tr>
-            <td>
-              <CartInfo>
-                <img src={require("../../assets/images/product-2.jpg")} alt="" />
-                <div>
-                  <p>Boy’s T-Shirt</p>
-                  <span>Price: 100.000</span> <br />
-                  <Link to="/#">remove</Link>
-                </div>
-              </CartInfo>
-            </td>
-            <td><input type="number" value="1" min="1" /></td>
-            <td>100.000</td>
-          </tr>
-          <tr>
-            <td>
-              <CartInfo>
-                <img src={require("../../assets/images/product-3.jpg")} alt="" />
-                <div>
-                  <p>Boy’s T-Shirt</p>
-                  <span>Price: 150.000</span> <br />
-                  <Link to="/#">remove</Link>
-                </div>
-              </CartInfo>
-            </td>
-            <td><input type="number" value="1" min="1" /></td>
-            <td>150.000</td>
-          </tr>
-          <tr>
-            <td>
-              <CartInfo>
-                <img src={require("../../assets/images/product-4.jpg")} alt="" />
-                <div>
-                  <p>Boy’s T-Shirt</p>
-                  <span>Price: 50.000</span> <br />
-                  <Link to="/#">remove</Link>
-                </div>
-              </CartInfo>
-            </td>
-            <td><input type="number" value="1" min="1" /></td>
-            <td>50.000</td>
-          </tr>
-          <tr>
-            <td>
-              <CartInfo>
-                <img src={require("../../assets/images/product-5.jpg")} alt="" />
-                <div>
-                  <p>Boy’s T-Shirt</p>
-                  <span>Price: 100.000</span> <br />
-                  <Link to="/#">remove</Link>
-                </div>
-              </CartInfo>
-            </td>
-            <td><input type="number" value="1" min="1" /></td>
-            <td>100.000</td>
-          </tr>
-          <tr>
-            <td>
-              <CartInfo>
-                <img src={require("../../assets/images/product-6.jpg")} alt="" />
-                <div>
-                  <p>Boy’s T-Shirt</p>
-                  <span>Price: 150.000</span> <br />
-                  <Link to="/#">remove</Link>
-                </div>
-              </CartInfo>
-            </td>
-            <td><input type="number" value="1" min="1" /></td>
-            <td>150.000</td>
-          </tr>
+          {data.map((item, i) => (
+            <tr key={i}>
+              <td>
+                <CartInfo>
+                  <img src={image[item.image]} alt={item.name} />
+                  <div>
+                    <p>{item.name}</p>
+                    <span>Price: Rp. {item.price}</span> <br />
+                    <div style={{ fontSize: '12px', color: 'red' }}
+                      onClick={() =>
+                        dispatch({ type: 'REMOVE_FROM_CART', value: item })
+                      }>
+                      remove
+                    </div>
+                  </div>
+                </CartInfo>
+              </td>
+              <td>
+                <input 
+                  type="number" 
+                  min={1}
+                  defaultValue={item.quantity}
+                  onChange={e =>
+                    dispatch({
+                      type: 'CHANGE_QUANTITY_ITEM',
+                      value: e.target.value,
+                      id: item.id
+                    })
+                  }
+                />
+              </td>
+              <td>Rp. {item.price * item.quantity}</td>
+            </tr>
+          ))}
         </table>
         <CartTotalPrice>
           <table>
             <tr>
               <td>Subtotal</td>
-              <td>550.000</td>
+              <td>Rp. {subTotalPrice}</td>
             </tr>
             <tr>
               <td>Tax</td>
-              <td>50.000</td>
+              <td>Rp. {tax}</td>
             </tr>
             <tr>
               <td>Total</td>
-              <td>600.000</td>
+              <td>Rp. {totalPrice}</td>
             </tr>
           </table>
           <CartButton to="/#">Proceed To Checkout</CartButton>
