@@ -1,33 +1,43 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api";
 
-
-export const useAllProducts = (id) => {
+export const useAllProducts = () => {
   const [loading, setLoading] = useState(false);
   const [apiData, setAPIData] = useState([]);
-  useEffect(() => {
-    const getAllProducts = async () => {
+  
+    const getAllProducts = async (page, limit, sortBy, order) => {
       try {
         setLoading(true);
-        let response;
-        if (id) {
-          response = await axios.get(
-            `https://63043b070de3cd918b43bc9b.mockapi.io/product/${id}`
-          );
-        } else {
-          response = await axios.get(
-            `https://63043b070de3cd918b43bc9b.mockapi.io/product`
-          );
-        }
+        const res = await api.getAll(page, limit, sortBy, order);
 
-        setAPIData(response.data);
+        setAPIData(res.data);
       } catch (error) {
         console.log("error", error);
       } finally {
         setLoading(false);
       }
     };
-    getAllProducts();
+  
+  return [apiData, loading, getAllProducts];
+};
+
+
+export const useProductById = (id) => {
+  const [loading, setLoading] = useState(false);
+  const [apiData, setAPIData] = useState([]);
+  useEffect(() => {
+    const getProductById = async () => {
+      try {
+        const res = await api.getById(id);
+       
+        setAPIData(res.data);
+      } catch (error) {
+        console.log("error", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getProductById();
   }, [id]);
   return { apiData, loading };
 };

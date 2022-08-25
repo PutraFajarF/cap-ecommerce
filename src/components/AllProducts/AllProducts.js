@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   auth
 } from '../../config/Firebase/firebase';
@@ -15,15 +15,28 @@ import { StyledAllProducts, TopContainer, AllProductSelect, AllProductForm, Pagi
 import { ProductCenter, ProductItem, ProductOverlay, ProductThumbImg, ProductInfo, ProductInfoLink, ProductIcon, ProductToCartLink } from '../New-Arrival/NewArrival.styled';
 
 const AllProducts = () => {
-  const data = useAllProducts();
-  const products = data.apiData;
-  const isLoading = data.loading;
+  const [sort, setSort] = useState('');
+  const [products, isLoading, getAllProduct] = useAllProducts();
+  // const data = useAllProducts();
+  // const products = data.apiData;
+  // const isLoading = data.loading;
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   window.scrollTo(0, 0)
+  // }, [products]);
+
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [products]);
+    if (products.length < 1) {
+      getAllProduct(1, 8, '', '');
+    }
+  }, [products.length, getAllProduct]);
+
+  const handleSort = params => {
+    setSort(params);
+    getAllProduct(1, 8, `${params}`, 'asc');
+  };
 
   return isLoading ? (
     <Spinner />
@@ -32,13 +45,14 @@ const AllProducts = () => {
       <StyledAllProducts>
         <TopContainer>
           <h1>All Products</h1>
-          <AllProductForm>
-            <AllProductSelect>
-              <option value="1">Default Sorting</option>
-              <option value="2">Sort By Price</option>
-              <option value="3">Sort By Popularity</option>
-              <option value="4">Sort By Sale</option>
-              <option value="5">Sort By Rating</option>
+          <AllProductForm onChange={e => handleSort(e.target.value)}
+              defaultValue={sort}>
+            <AllProductSelect
+              onChange={e => handleSort(e.target.value)}
+              defaultValue={sort}
+            >
+              <option value='id'>Default Sorting</option>
+              <option value='price'>Sort By Price</option>
             </AllProductSelect>
             <span><i className="bx bx-chevron-down"></i></span>
           </AllProductForm>
