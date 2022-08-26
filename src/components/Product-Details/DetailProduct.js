@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { image } from '../../image';
 import { useDispatch } from 'react-redux';
+import swal from 'sweetalert';
 
 // API Hooks
 import { useAllProducts } from '../../hooks/useAllProducts';
@@ -41,13 +42,13 @@ const DetailProduct = () => {
     const { quantity } = detailOrder;
       const data = { id, name, description, image, price, discount, category, quantity };
       if (quantity === 0) {
-        alert('Please fill all field');
+        swal("Failed add to cart!", "Please fill quantity item before add to cart!", "warning");
       } else {
         dispatch({
           type: 'ADD_TO_CART',
           value: data
         });
-        alert('Added to cart');
+        swal("Added to cart!", "One more step to checkout...", "success");
       }
   };
 
