@@ -116,7 +116,7 @@ export const DetailRightForm = styled.form`
   input {
     padding: 0.8rem;
     text-align: center;
-    width: 3.5rem;
+    width: 6rem;
     margin-right: 2rem;
   }
 
