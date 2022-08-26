@@ -32,7 +32,7 @@ const PopularProducts = () => {
               <h4>Rp. 95.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/product/7' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
           <ProductItem>
@@ -47,7 +47,7 @@ const PopularProducts = () => {
               <h4>Rp. 180.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/product/4' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
           <ProductItem>
@@ -63,7 +63,7 @@ const PopularProducts = () => {
               <h4>Rp. 350.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/product/8' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
           <ProductItem>
@@ -78,7 +78,7 @@ const PopularProducts = () => {
               <h4>Rp. 90.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/product/6' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
         </ProductCenter>

@@ -6,7 +6,7 @@ import {
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 // Styled Components
-import { StyledNavigation, StyledNavCenter, LinkLogo, NavLink, StyledScroll, StyledNavList, StyledNavItem, StyledNavIcon, StyledLinkIcon, SearchIcon, StyledDivIcon, StyledSpanIcon } from './Navigation.styled';
+import { StyledNavigation, StyledNavCenter, LinkLogo, NavLink, StyledScroll, StyledNavList, StyledNavItem, StyledNavIcon, StyledLinkIcon, SearchIcon, StyledDivIcon } from './Navigation.styled';
 
 const Navigation = () => {
   const [user] = useAuthState(auth);
@@ -47,7 +47,6 @@ const Navigation = () => {
             {user && (
               <StyledLinkIcon to={user ? '/cart' : '/login'}>
                 <i className="bx bx-cart"></i>
-                <StyledSpanIcon>0</StyledSpanIcon>
               </StyledLinkIcon>
             )}
           </StyledNavIcon>

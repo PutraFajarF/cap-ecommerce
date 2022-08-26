@@ -31,7 +31,7 @@ const NewArrival = () => {
               <h4>Rp. 90.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/product/1' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
           <ProductItem>
@@ -47,7 +47,7 @@ const NewArrival = () => {
               <h4>Rp. 275.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/product/3' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
           <ProductItem>
@@ -62,7 +62,7 @@ const NewArrival = () => {
               <h4>Rp. 225.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/product/2' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
           <ProductItem>
@@ -78,7 +78,7 @@ const NewArrival = () => {
               <h4>Rp. 180.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/product/4' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
           <ProductItem>
@@ -93,7 +93,7 @@ const NewArrival = () => {
               <h4>Rp. 200.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/product/5' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
           <ProductItem>
@@ -108,7 +108,7 @@ const NewArrival = () => {
               <h4>Rp. 85.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/product/6' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
           <ProductItem>
@@ -124,7 +124,7 @@ const NewArrival = () => {
               <h4>Rp. 95.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/product/7' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
           <ProductItem>
@@ -139,7 +139,7 @@ const NewArrival = () => {
               <h4>350.000</h4>
             </ProductInfo>
             <ProductIcon>
-              <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+              <ProductToCartLink to={user ? '/product/8' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
             </ProductIcon>
           </ProductItem>
         </ProductCenter>
