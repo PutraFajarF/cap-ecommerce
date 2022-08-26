@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   auth
 } from '../../config/Firebase/firebase';
@@ -11,7 +11,7 @@ import { useAllProducts } from '../../hooks/useAllProducts';
 
 // Styled Components
 import Spinner from '../Spinner/Spinner';
-import { StyledAllProducts, TopContainer, AllProductSelect, AllProductForm, Pagination, PaginationContainer } from './AllProducts.styled';
+import { StyledAllProducts, TopContainer, AllProductSelect, AllProductForm } from './AllProducts.styled';
 import { ProductCenter, ProductItem, ProductOverlay, ProductThumbImg, ProductInfo, ProductInfoLink, ProductIcon, ProductToCartLink } from '../New-Arrival/NewArrival.styled';
 
 const AllProducts = () => {
@@ -20,10 +20,21 @@ const AllProducts = () => {
   const isLoading = data.loading;
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
+  const [dataItem, setDataItem] = useState();
+  const filterItem = (cat) => {
+    if (cat === "") {
+      setDataItem(products)
+    } else {
+      setDataItem(products.filter(prod => prod.category === cat))
+    }
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [products]);
+    if (!isLoading) {
+      setDataItem(products)
+    }
+  }, [isLoading ,products]);
 
   return isLoading ? (
     <Spinner />
@@ -33,18 +44,17 @@ const AllProducts = () => {
         <TopContainer>
           <h1>All Products</h1>
           <AllProductForm>
-            <AllProductSelect>
-              <option value="1">Default Sorting</option>
-              <option value="2">Sort By Price</option>
-              <option value="3">Sort By Popularity</option>
-              <option value="4">Sort By Sale</option>
-              <option value="5">Sort By Rating</option>
+            <AllProductSelect onChange={(e) => filterItem(e.target.value)}>
+              <option value="">Default Sorting</option>
+              <option value="WOMEN'S WEAR">Category WOMEN'S WEAR</option>
+              <option value="MEN'S WEAR">Category MEN'S WEAR</option>
+              <option value="ACCESSORIES">Category ACCESSORIES</option>
             </AllProductSelect>
             <span><i className="bx bx-chevron-down"></i></span>
           </AllProductForm>
         </TopContainer>
         <ProductCenter>
-          {products.map((product, index) => (
+          {dataItem?.map((product, index) => (
             <ProductItem key={index}>
               <ProductOverlay onClick={() => navigate(`/product/${product.id}`)}>
                 <Link to={`product/${product.id}`}>
@@ -64,12 +74,6 @@ const AllProducts = () => {
           ))}
         </ProductCenter>
       </StyledAllProducts>
-      <Pagination>
-        <PaginationContainer>
-          <span>1</span> <span>2</span> <span>3</span> <span>4</span>
-          <span><i className="bx bx-right-arrow-alt"></i></span>
-        </PaginationContainer>
-      </Pagination>
     </>
   );
 };

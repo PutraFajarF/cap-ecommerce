@@ -41,7 +41,7 @@ const DetailProduct = () => {
     const { id, name, description, image, price, discount, category} = product;
     const { quantity } = detailOrder;
       const data = { id, name, description, image, price, discount, category, quantity };
-      if (quantity === 0) {
+      if (quantity < 1) {
         swal("Failed add to cart!", "Please fill quantity item before add to cart!", "warning");
       } else {
         dispatch({
