@@ -68,7 +68,7 @@ const AllProducts = () => {
                 <h4>Rp. {product.price}</h4>
               </ProductInfo>
               <ProductIcon>
-                <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+                <ProductToCartLink to={user ? `/product/${product.id}` : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
               </ProductIcon>
             </ProductItem>
           ))}

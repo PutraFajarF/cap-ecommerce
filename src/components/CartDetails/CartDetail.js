@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   auth
 } from '../../config/Firebase/firebase';
@@ -35,6 +35,11 @@ const CartDetail = () => {
   const handleClick = id => {
     navigate(`/product/${id}`);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [products]);
+  
   return (
     <>
       <CartContainer>
@@ -114,7 +119,7 @@ const CartDetail = () => {
                   <h4>Rp. {prod.price}</h4>
                 </ProductInfo>
                 <ProductIcon>
-                  <ProductToCartLink to={user ? '/cart' : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
+                  <ProductToCartLink to={user ? `/product/${prod.id}` : '/login'}><i className="bx bx-cart">Add To Cart</i></ProductToCartLink>
                 </ProductIcon>
               </ProductItem>
             ))}
